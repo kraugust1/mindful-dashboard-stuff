@@ -1,11 +1,263 @@
-/* Diagnostic Styling */
+/* Import font */
+@import "https://api.fontshare.com/v2/css?f[]=pally@500&display=swap";
+
+:root {
+/*   thing: var( --color1); */
+    --color1: #F2B5D4;
+    --color2: #F7D488;
+    --color3: #C52184;
+    --color4: #BA5A31;
+    --color5: #6E9887;
+}
+
+/* Global styles */
 * {
-  outline: 2px dotted gray;
-} 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+/*   outline: 0.5px solid rgba(255, 145, 0, 0.952); */
+}
 
-
-/* temp background color */
 body {
-    background: peachpuff;
+  font-family: 'Pally', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var( --color5);
+/*   filter: saturate(.7); */
+  padding: 2rem;
+}
+
+.bento-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Default layout for larger screens */
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+  width: 90%;
+  max-width: 1200px;
+  aspect-ratio: 16/9;
+  padding: 1rem;
+  background: var( --color4);
+/*   border-radius: 2rem; */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.bento-item {
+  position: relative;
+  background: #f8f8f8;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  color: 333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  margin: 10px;
+}
+
+#shapeContainer {
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: auto; /* Allow dynamic width based on content */
+    height: auto; /* Allow dynamic height based on content */
+  
+  
+}
+
+.shape {
+    display: none;
+    position: absolute;
+    top: -50px; /* Adjust as needed */
+    width: 50px;
+    height: 50px;
+}
+
+.circle {
+    border-radius: 50%;
+    background-color: palegreen;
+}
+
+.square {
+    background-color: palegreen;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid palegreen;
+}
+
+.bento-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: #e0e0e0;
+}
+
+/* 768px and above Media Query */
+@media (min-width: 769px) {
+  .bento-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns layout */
+    grid-template-rows: auto;
+    gap: 1rem;
+    border-radius: 100px/175px;
+  }
+
+  .bento1 {
+    grid-column: 1 / 4; /* Span across all three columns */
+    grid-row: 2; /* Place it in the second row */
+    border-top-right-radius: 80%;
+    border-bottom-left-radius: 80%;
+    border-top-left-radius: 80%;
+    border-bottom-right-radius: 80%;
+    background: var( --color1);
+    filter: saturate(.7);
   }
   
+  .bento2 {
+    border-top-left-radius: 80%;
+    border-bottom-right-radius: 80%;
+    background: var( --color2);
+    filter: saturate(.7);
+    text-align: center;
+  }
+  
+  .bento3 {
+    grid-column-end: 4;
+    grid-row: 3;
+    border-top-left-radius: 80%;
+    border-bottom-right-radius: 80%;
+    background: var( --color2);
+    filter: saturate(.7);
+    text-align: center;
+  }
+  
+  .bento5 {
+    grid-column-end: 2;
+    grid-row: 3;
+    border-top-right-radius: 80%;
+    border-bottom-left-radius: 80%;
+    background: var( --color3);
+    text-align: center;
+    filter: saturate(.7);
+  }
+  
+  .bento4 {
+    grid-column-end: 4;
+    border-top-right-radius: 80%;
+    border-bottom-left-radius: 80%;
+    text-align: center;
+    background: var( --color3);
+    filter: saturate(.7);
+  }
+  
+  
+}
+
+/* 768px to 481px Media Query */
+@media (min-width: 481px) and (max-width: 768px) {
+  .bento-container {
+    grid-template-columns: repeat(2, 1fr) !important; /* Two columns layout */
+    grid-template-rows: auto !important;
+    gap: 1rem !important;
+    border-radius: 2rem;
+    background: var( --color4);
+  }
+
+  /* .bento-item {
+    border-radius: 3rem !important;
+  } */
+
+  .bento1 {
+    background: var( --color1) !important;
+    grid-column: span 2 !important;
+    border-top-right-radius: 100%;
+    border-bottom-left-radius: 60%;
+    border-top-left-radius: 100%;
+    border-bottom-right-radius: 60%;
+  }
+
+  .bento2, .bento4 {
+    background: var( --color3) !important;
+    border-top-right-radius: 80%;
+    border-bottom-left-radius: 80%;
+    filter: saturate(.8);
+    text-align: center;
+  }
+  
+  .bento3, .bento5 {
+    background: var( --color2) !important;
+    border-top-left-radius: 80%;
+    border-bottom-right-radius: 80%;
+    filter: saturate(.7);
+    text-align: center;
+  }
+}
+
+/* 480px and below Media Query */
+@media (max-width: 480px) {
+  .bento-container {
+    display: block !important;
+    background: var( --color4) !important; /* Ensure background color change */
+    border-radius: 50%;
+    height: 650px;
+    width: 400px;
+  }
+  .bento-item {
+    /* background-color: red ;
+    background-image: none ; "Remove any gradient background"
+    border-radius: 5rem; */
+    margin-left: 50px;
+    margin-right: 50px;
+    position: relative;
+    top: 50px; 
+  }
+  
+  .bento-container .bento-item.bento1 {
+    background: var( --color1); /* Ensure background color change */
+    background-image: none ; /* Remove any gradient background */
+    width: 263px;
+    height: 70px;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+  .bento-container .bento-item.bento2 {
+    background: var( --color2);
+    background-image: none ; /* Remove any gradient background */
+    
+    border-top-left-radius: 70%;
+    border-bottom-right-radius: 67%;
+  }
+  .bento-container .bento-item.bento3 {
+    background: var( --color3);
+    background-image: none ; /* Remove any gradient background */
+    
+    border-top-right-radius: 70%;
+    border-bottom-left-radius: 67%;
+    filter: saturate(.8);
+  }
+  .bento-container .bento-item.bento4 {
+    background: var( --color2);
+    background-image: none ; /* Remove any gradient background */
+    
+    border-top-left-radius: 70%;
+    border-bottom-right-radius: 67%;
+  }
+  .bento-container .bento-item.bento5 {
+    background: var( --color3);
+    background-image: none ; /* Remove any gradient background */
+    
+    border-top-right-radius: 70%;
+    border-bottom-left-radius: 67%;
+    filter: saturate(.8);
+    text-align: center;   
+  }
+}

@@ -7,14 +7,14 @@
 * Apply CSS styling to dynamic data
 * Explore pro/cons of JS libraries, plugins, frameworks, etc.
 
-## Citations
-* List your citations here
+## Citations of working website
+   if anyone has any idea on how to tranfer and have the stupid js work, let me know.
+* [working 'website/wiget' via codepen here](https://codepen.io/kraugust1/pen/QwWvjBo)
 
-## How?
-* Simply click on "Use this template" button to create a new repository
 
-## Citations
+## Citations 2
 * [Normalize CSS](https://necolas.github.io/normalize.css/)
 * [Font Share](https://www.fontshare.com/)
-
-
+* ai code help (sadly)
+* [lucide.dev icons](https://lucide.dev)
+* [codpen collection and working 'website'](https://codepen.io/collection/adMxeV)
