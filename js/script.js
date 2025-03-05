@@ -25,7 +25,8 @@ elemAgeOfPerson.textContent = ageOfPerson;
 elemAgeOfPerson.setAttribute("datetime", ageOfPerson );
 
 // EWU Graudation Date
-const gradDay = "2025-07-04";
+// const gradDay = "2025-07-04";
+const gradDay = `${new Date().getFullYear()}-07-04`;
 const daysUntilGrad = getDaysUntilEvent( gradDay )  ;
  // console.log( getDaysUntilEvent( gradDay ) );
 
